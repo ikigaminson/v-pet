@@ -1,2 +1,2 @@
 # v-pet
-A web v-pet proyect based in c#
+A web v-pet project based in c#
