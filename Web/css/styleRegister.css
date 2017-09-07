@@ -1,4 +1,10 @@
-﻿body {
+﻿@font-face {
+    font-family: 'eight-Bit_Madness';
+    src: url("../src/8-Bit_Madness.ttf") format("truetype");
+}
+
+* {
+    font-family: 'eight-Bit_Madness';
 }
 
 .auto-style4 {
@@ -47,3 +53,4 @@
 .auto-style13 {
     width: 100%;
 }
+

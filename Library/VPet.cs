@@ -36,7 +36,7 @@ namespace Library
             PetHabillity = (typeHabillity)1;
         }
 
-        public VPet(Player player, Pet pet, string name, int age, int food, int health, int poop, DateTime date, typeHabillity petHabillity)
+        /*public VPet(Player player, Pet pet, string name, int age, int food, int health, int poop, DateTime date, typeHabillity petHabillity)
         {
             Player = player;
             Pet = pet;
@@ -47,7 +47,7 @@ namespace Library
             Ex = 0;
             Date = date;
             PetHabillity = petHabillity;
-        }
+        }*/
 
         // Recived Damage
         public int dañoCausado(int enemyDamage)

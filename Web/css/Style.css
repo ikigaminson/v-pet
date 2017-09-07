@@ -1,4 +1,13 @@
-﻿body {
+﻿@font-face {
+    font-family: 'eight-Bit_Madness';
+    src: url('../src/8-Bit Madness.ttf') format("truetype");
+}
+
+* {
+    font-family: 'eight-Bit_Madness';
+}
+
+body {
     background-image: url('../imagenes/fondo1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -6,11 +15,11 @@
 
 table {
     font-size: 26px;
-    padding:20px;
+    padding: 20px;
 }
 
 td {
-    font-family: 'eight-Bit Madness';
+    font-family: 'eight-Bit_Madness';
     color: #FFFFFF;
     font-size: 26px;
 }
@@ -44,7 +53,7 @@ td {
     background-image: url('../imagenes/botonIngresar.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'eight-Bit Madness';
+    font-family: 'eight-Bit_Madness';
     font-size: large;
     Height: 42px;
     Width: 80px;
