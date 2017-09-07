@@ -1,0 +1,51 @@
+﻿body {
+    background-image: url('../imagenes/fondo1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+table {
+    font-size: 26px;
+    padding:20px;
+}
+
+td {
+    font-family: 'eight-Bit Madness';
+    color: #FFFFFF;
+    font-size: 26px;
+}
+
+#div_form {
+    position: absolute;
+    background-color: #64b5f6;
+    margin: 15% 0 0 20%;
+    height: 80%;
+    width: 40%;
+}
+
+#td_txt {
+    width: 2%;
+}
+
+#txtUsuario {
+    Width: 80%;
+}
+
+#txtPass {
+    Width: 80%;
+}
+
+#btnSend {
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+}
+
+#btnIngresar {
+    background-image: url('../imagenes/botonIngresar.png');
+    background-repeat: no-repeat;
+    font-family: 'eight-Bit Madness';
+    font-size: large;
+    Height: 42px;
+    Width: 78px;
+}
