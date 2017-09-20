@@ -26,13 +26,13 @@ public partial class _Default : System.Web.UI.Page
         bool valPet = colex.Exists(x => x.PlayerData.User.Equals(Session["user"]) && x.PetData != null);
         lblError.Visible = false;
         if (IsPostBack && valPet)
-            Response.Redirect("petView.aspx");
+            Response.Redirect("viewPet.aspx");
 
         if (Session["status"] == null || Session["user"] == null)
             Response.Redirect("Inicio.aspx");
 
         if (valPet)
-            Response.Redirect("petView.aspx");
+            Response.Redirect("viewPet.aspx");
 
     }
 
@@ -70,7 +70,7 @@ public partial class _Default : System.Web.UI.Page
             if (!colex.AgregarPet(colex, baby, p))
                 lblError.Visible = true;
             else
-                Response.Redirect("petView.aspx");
+                Response.Redirect("viewPet.aspx");
 
         }
         catch (Exception)

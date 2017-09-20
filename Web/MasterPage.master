@@ -4,27 +4,28 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="jquery-3.2.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="height: 266px; background-image: url('imagenes/fondo1.jpg'); background-repeat: no-repeat; background-attachment: fixed; margin-bottom: 2px; ">
+<body style="height: 266px; background-image: url('imagenes/fondo1.jpg'); background-repeat: no-repeat; background-attachment: fixed; margin-bottom: 2px;">
     <form id="form1" runat="server">
-    <div>
-        <br />
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="Inicio.aspx"><img src="imagenes/logo.png" style="margin-left: 0px"/></a>
-        <p style="text-align: right">
-            <a ID="lblSalir" name="lblSalir" href="salir.aspx" runat="server">Salir</a></p>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-            
-        
-        </asp:ContentPlaceHolder>
-        <br />
-    </div>
+        <div>
+            <br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       
+            <a href="Inicio.aspx">
+                <img src="imagenes/logo.png" style="margin-left: 0px" /></a>
+            <p style="text-align: right">
+                <a id="lblSalir" name="lblSalir" href="salir.aspx" runat="server">Salir</a>
+            </p>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <br />
+        </div>
     </form>
 </body>
 </html>
