@@ -10,8 +10,7 @@ public partial class _Default : System.Web.UI.Page
     private ColeccionPlayer colex
     {
         get
-        {
-           
+        {           
             return (ColeccionPlayer)Session["Coleccion"];
         }
 
@@ -19,31 +18,61 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["status"] != null)
+            Response.Redirect("CrearPet.aspx");
+
         if (Session["Coleccion"] == null)
         {
             Response.Redirect("Registro.aspx");
         }
         else
         {
-           
-            btnCrear.Visible = true;
-            gdvPet.DataSource = colex;
-            gdvPet.DataBind();
+            //Reinicia la variable sessión para poder agregar/modificar más elementos xD
+            //Session["Nombre"] = null;
+
+            btnVolver.Visible = true;
+            gdvUsuario.DataSource = colex.Select(x=> x.PlayerData.User) ;
+            gdvUsuario.DataBind();
         }
     }
 
 
-    protected void gdvPet_SelectedIndexChanged(object sender, EventArgs e)
+    protected void gdvUsuario_SelectedIndexChanged(object sender, EventArgs e)
     {
-
-        btnCrear.Visible = true;
-        Session["Nombre"] = gdvPet.SelectedRow.Cells[1].Text;
+        btnVolver.Visible = true;
+        Session["Nombre"] = gdvUsuario.SelectedRow.Cells[1].Text;
     }
 
 
-    protected void btnCrear_Click(object sender, EventArgs e)
+    protected void btnVolver_Click(object sender, EventArgs e)
     {
-        Response.Redirect("CrearPet.aspx");
+        Response.Redirect("Login.aspx");
     }
+
+
+    protected void btnEliminar_Click(object sender, EventArgs e)
+    {
+        if (Session["Nombre"] != null)
+        {
+            if (colex.EliminarUsuario(colex, Session["Nombre"].ToString() ))
+            {
+                Session["Nombre"] = null;
+                lblMsg.Text = "Eliminado con EXITO!!!";
+                Response.AppendHeader("Refresh", "0");
+            }
+        }
+    }
+
+
+    protected void btnModificar_Click(object sender, EventArgs e)
+    {
+        if (Session["Nombre"] != null)
+        {
+            Response.Redirect("Registro.aspx");
+        }
+    }
+
+
+    
 }
 

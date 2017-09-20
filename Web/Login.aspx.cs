@@ -18,26 +18,39 @@ public partial class inicio : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //Si no es null va a ver pet, sino crea/limpia "user" y mantiene en página
+        if (Session["status"] != null)
+            Response.Redirect("CrearPet.aspx");
+        else
+            Session["user"] = null;
     }
 
     protected void btnIngresar_Click(object sender, EventArgs e)
     {
         if (Session["Coleccion"] != null)
         {
-            if (colex.Exists(x => x.User.Equals(txtUsuario.Text)))
+            if (colex.Exists(x => x.PlayerData.User.Equals(txtUsuario.Text)))
             {
-                if (colex.Exists(z => z.Password.Equals(txtPass.Text) && z.User.Equals(txtUsuario.Text)))
+                if (colex.Exists(z => z.PlayerData.Password.Equals(txtPass.Text) && z.PlayerData.User.Equals(txtUsuario.Text)))
+                {
+                    //Genera si está logueado
+                    Session["status"] = true;
+                    //Indica el usuario con el que está trabajando
+                    Session["user"] = txtUsuario.Text;
                     Response.Redirect("CrearPet.aspx");
+                }
                 else
                     lblMsg.Text = "Contraseña erronea";
             }
             else
-            lblMsg.Text = "El Usuario no Existe";
+                lblMsg.Text = "El Usuario no Existe";
         }
         else
         {
-            //lblMsg.Text = "El Usuario no Existe";
+            lblMsg.Text = "El Usuario no Existe";
         }
+
+
+
     }
 }

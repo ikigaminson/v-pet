@@ -7,51 +7,51 @@ using System.Web.UI.WebControls;
 using Library;
 public partial class _Default : System.Web.UI.Page
 {
-    private ColeccionPet colex
+    private ColeccionPlayer colex
     {
         get
         {
-            if (Session["ColeccionPet"]==null)
+            if (Session["Coleccion"] == null)
             {
-                Session["ColeccionPet"] = new ColeccionPet();
+                Session["Coleccion"] = new ColeccionPlayer();
             }
-            return (ColeccionPet)Session["ColeccionPet"];
-        }
-        set
-        {
-            Session["ColeccionPet"] = value;     
-        }
-    }
-
-    private ColeccionPlayer colecc
-    {
-        get
-        {
             return (ColeccionPlayer)Session["Coleccion"];
         }
     }
 
 
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        bool valPet = colex.Exists(x => x.PlayerData.User.Equals(Session["user"]) && x.PetData != null);
+        lblError.Visible = false;
+        if (IsPostBack && valPet)
+            Response.Redirect("petView.aspx");
+
+        if (Session["status"] == null || Session["user"] == null)
+            Response.Redirect("Inicio.aspx");
+
+        if (valPet)
+            Response.Redirect("petView.aspx");
 
     }
 
     protected void btnRegistrar_Click(object sender, EventArgs e)
     {
-        
-            Random rnd = new Random();
-            //var values = Enum.GetValues(typeof(typePet));
-            // typePet tipoAleatorio = (typePet)values[R(0, values.Length)];
 
-            Pet baby = new Pet();
+        //Random rnd = new Random();
+        //var values = Enum.GetValues(typeof(typePet));
+        // typePet tipoAleatorio = (typePet)values[R(0, values.Length)];      
 
         try
         {
-            baby.Name = txtNombre.Text;
-            baby.Poop = rnd.Next(1, 100);
-            baby.Age = rnd.Next(1, 10);
-            baby.Date = DateTime.Now;
+            Pet baby = new Pet
+            {
+                Name = txtNombre.Text,
+                Poop = 0,
+                Age = 0,
+                Date = DateTime.Now
+            };
 
             if (ddlTipo.SelectedValue == "Virus")
             {
@@ -65,16 +65,23 @@ public partial class _Default : System.Web.UI.Page
             {
                 baby.PetType = typePet.vacuum;
             }
-        }
-        catch (Exception)
-        { 
+            string p = Session["user"].ToString();
+
+            if (!colex.AgregarPet(colex, baby, p))
+                lblError.Visible = true;
+            else
+                Response.Redirect("petView.aspx");
 
         }
-        
-     
+        catch (Exception)
+        {
+
+        }
+
+
 
 
     }
 
-    
+
 }

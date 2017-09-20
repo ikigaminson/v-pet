@@ -67,7 +67,7 @@
             <tr>
                 <td align="left" style="font-family: 'eight-Bit Madness'; color: #FFFFFF;" class="auto-style1">
                     
-                    <asp:Label ID="lblMsg" runat="server">asdasdas</asp:Label>
+                    <asp:Label ID="lblMsg" runat="server"></asp:Label>
                 </td>
                 
             </tr>

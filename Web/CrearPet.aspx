@@ -55,7 +55,7 @@
         </tr>
         <tr>
             <td class="auto-style1" style="font-family: 'eight-Bit Madness'">&nbsp; Tipo:</td>
-            <td class="auto-style9">
+            <td class="auto-style9" >
                
                 <asp:DropDownList ID="ddlTipo" runat="server" Font-Names="Eight-Bit Madness" Font-Size="Medium">
                     <asp:ListItem>Seleccione</asp:ListItem>
@@ -71,7 +71,7 @@
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style9">
                  <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" OnClick="btnRegistrar_Click" Font-Names="Eight-Bit Madness" BorderColor="#3333FF" BorderStyle="Outset" Font-Size="Large" Height="34px" Width="79px" style="background-image:url(imagenes/botonIngresar.png); background-repeat:no-repeat"/></td>
-            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style6"><a ID="lblError" name="lblError" runat="server">Error D:</a><td>
         </tr>
     </table></div>
 </asp:Content>

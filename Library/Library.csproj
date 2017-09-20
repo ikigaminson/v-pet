@@ -40,11 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColeccionPet.cs" />
+    <Compile Include="ColeccionPlayer.cs" />
     <Compile Include="Enum.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VPet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram_v0.1.cd" />

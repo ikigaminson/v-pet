@@ -10,20 +10,10 @@ namespace Library
     {
         public typePet PetType { get; set; }
         public string Name { get; set; }
-        public int Attack { get; set; }
-        public int Defense { get; set; }
-        public int Health { get; set; }
-        public int EvPoint { get; set; }
-
-        public Pet(typePet petType, string name, int attack, int defense, int evPoint, int health)
-        {
-            PetType = petType;
-            Name = name;
-            Attack = attack;
-            Defense = defense;
-            Health = health;
-            EvPoint = evPoint;
-        }
+        public int Age { get; set; }
+        public int Food { get; set; }
+        public int Poop { get; set; }
+        public DateTime Date { get; set; }
 
         public Pet()
         {
@@ -32,12 +22,23 @@ namespace Library
 
         private void Init()
         {
-            PetType = (typePet)1;
+            PetType = typePet.data;
             Name = string.Empty;
-            Attack = 0;
-            Health = 0;
-            Defense = 0;
-            EvPoint = 0;
+            Age = 0;
+            Food = 0;
+            Poop = 0;
+            Date = new DateTime(1990,01,01);
+        }
+
+        public void FoodStatus()
+        {
+            Food++;            
+        }
+
+        // cuando esta a punto hacerse popo
+        public void PoopIncoming()
+        {
+            Poop++;
         }
     }
 }

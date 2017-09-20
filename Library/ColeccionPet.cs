@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class ColeccionPet:List <Pet>
+    public class ColeccionPet
     {
+        public Pet PetData { get; set; }
+        public Player PlayerData { get; set; }
+
         public ColeccionPet()
         {
-
+            PetData = new Pet();
+            PlayerData = new Player();
         }
     }
 }

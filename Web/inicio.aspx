@@ -1,45 +1,72 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="inicio.aspx.cs" Inherits="inicio" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Inicio.aspx.cs" Inherits="Inicio" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/Style.css" />
-    <title></title>
-</head>
-<body>
-    <!--To make a responsive site, I should do a div version of the form-->
-    <div id="div_form">
-        <form id="form1" runat="server" action="">
-            <!-- action debería mandar a auth.aspx-->
-            <table border="0">
-                <tr>
-                    <td colspan="2">
-                        <img src="imagenes/logo.png" /></td>
-                </tr>
-                <tr>
-                    <td>User</td>
-                    <td>
-                        <asp:TextBox ID="txtUsuario" runat="server" required></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>
-                        <asp:TextBox ID="txtPass" runat="server" TextMode="Password" required></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td id="btnSend">
-                        <asp:Button ID="btnIngresar" runat="server" Text="Login" />
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <p>Not player yet? <a href="Registro.aspx">Register!</a></p>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style type="text/css">
+        .auto-style2 {
+            height: 23px;
+            width: 151px;
+        }
+        .auto-style3 {
+            width: 151px;
+        }
+        .auto-style4 {
+            height: 23px;
+            width: 598px;
+        }
+        .auto-style5 {
+            width: 598px;
+        }
+        .auto-style6 {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        .auto-style7 {
+            margin-left: 63px;
+        }
+        .auto-style8 {
+            width: 100%;
+            margin-left: 230px;
+        }
+        .auto-style10 {
+            width: 835px;
+            height: 104px;
+            margin-left: 1px;
+            margin-top: 66px;
+        }
+        .auto-style11 {
+            height: 23px;
+            width: 79px;
+        }
+        .auto-style12 {
+            width: 79px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div  align="center" class="auto-style10">
+    <table class="auto-style8">
+        <tr>
+            <td class="auto-style2"></td>
+            <td class="auto-style4"style="font-family: 'Eight-Bit Madness'; font-size: 50px; color: #FFFFFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bienvenido a V-Pet</td>
+            <td class="auto-style11"></td>
+        </tr>
+        <tr>
+            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style5">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnLogin" runat="server" Font-Names="Eight-Bit Madness" Font-Size="X-Large" Text="Iniciar Sesion" style="background-image:url(imagenes/botonIngresar.png)" BorderColor="#3333FF" BorderStyle="Outset" OnClick="btnLogin_Click" CssClass="auto-style7"/>
+                &nbsp;<asp:Button ID="btnReg" runat="server" Font-Names="Eight-Bit Madness" Font-Size="X-Large" Text="Registrarse" style="background-image:url(imagenes/botonIngresar.png)" BorderColor="#3333FF" BorderStyle="Outset" OnClick="btnReg_Click" CssClass="auto-style6"/>
+            </td>
+            <td class="auto-style12">
+                
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style5">&nbsp;</td>
+            <td class="auto-style12">&nbsp;</td>
+        </tr>
+    </table>
     </div>
+</asp:Content>
 
-</body>
-</html>
