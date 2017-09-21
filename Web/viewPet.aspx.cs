@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Library;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Text;
 
 public partial class viewPet : System.Web.UI.Page
 {
@@ -24,16 +26,25 @@ public partial class viewPet : System.Web.UI.Page
             Response.Redirect("Login.aspx");
         if (colex.Exists(x => x.PlayerData.User.Equals(Session["user"]) && x.PetData == null))
             Response.Redirect("CrearPet.aspx");
+        vpEat.Visible = false;
     }
 
-    protected void StatusPet_onClick(object sender, EventArgs e) {
+    protected void StatusPet_onClick(object sender, EventArgs e)
+    {
+        Pet peteru = GetPet();
 
         //Si el gif se ve, lo hace invisible y debería mostrar los datos del vpet
         if (vPet.Visible == true)
         {
             vPet.Visible = false;
             lblvp.Visible = true;
-            lblvp.InnerText = "jajaja";
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Status " + peteru.Name);
+            sb.AppendLine("Edad: " + peteru.Age + " dias");
+            sb.AppendLine("Comida: " + peteru.Food);
+
+            lblvp.Text = sb.ToString();
         }
         //oculta los datos y muestra el gif
         else
@@ -43,15 +54,50 @@ public partial class viewPet : System.Web.UI.Page
         }
     }
 
-    //async es por el await del Delay
-    protected async void EatTime_onClick(object sender, EventArgs e) {
-        //Esto debería poder cambiar la imagen, pero nada que funciona
-        ClientScript.RegisterStartupScript(typeof(Page), "script", "reloadImg();", true);
-        await Task.Delay(5000);
-        vPet.Src = "imagenes/Pets/guilattack.gif";
-        
+
+    protected void EatTime_onClick(object sender, EventArgs e)
+    {
+        //ClientScript.RegisterStartupScript(typeof(Page), "script", "reloadImg();", true);
+        Pet peteru = GetPet();
+        lblvp.Visible = false;
+
+        //Por jones debería switch entre los gifs, pero no lo hace. hace lo que le da la puta gana D:<
+        vpEat.Visible = true;
+        vPet.Visible = false;
+
+        //Alimenta de mala manera al pet po' >:c
+        peteru.Food++;
+
+        //Espera 2 sec. antes de volver al gif original
+        Thread.Sleep(2000);
+
+        //Hace switch entre los gifs xD
+        vpEat.Visible = false;
+        vPet.Visible = true;
+
+        SetPet(peteru);//Japones quien te conoce(?)
+
     }
 
-    protected void PoopTime_onClick(object sender, EventArgs e) {
+    protected void PoopTime_onClick(object sender, EventArgs e)
+    {
+    }
+
+    /// <summary>
+    ///    Obtiene la mascota desde la colección
+    /// </summary>
+    /// <returns>Pet</returns>
+    private Pet GetPet()
+    {
+        return colex.Last(x => x.PlayerData.User.Equals(Session["user"])).PetData;
+    }
+
+    /// <summary>
+    ///     Guarda la mascota del usuario en la colección
+    /// </summary>
+    /// <param name="p">Valor pet a cambiar</param>
+    private void SetPet(Pet p)
+    {
+        colex.Last(x => x.PlayerData.User.Equals(Session["user"])).PetData = p;
     }
 }

@@ -10,10 +10,16 @@ namespace Library
     {
         public typePet PetType { get; set; }
         public string Name { get; set; }
-        public int Age { get; set; }
         public int Food { get; set; }
         public int Poop { get; set; }
         public DateTime Date { get; set; }
+        private int _age;
+
+        public int Age
+        {
+            get { return GenerarEdad(); }
+            set { _age = value; }
+        }
 
         public Pet()
         {
@@ -39,6 +45,12 @@ namespace Library
         public void PoopIncoming()
         {
             Poop++;
+        }
+
+        private int GenerarEdad()
+        {
+            TimeSpan t = DateTime.Now - Date;
+            return t.Days;
         }
     }
 }

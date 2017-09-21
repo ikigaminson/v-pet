@@ -1,15 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="viewPet.aspx.cs" Inherits="viewPet" Async="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script>
+    <!--  <script>
         function reloadImg() {
             d = new Date();
             $("#vPet").attr("src", "/imagenes/Pets/guileat.gif?"+d.getTime());
         }
-    </script>
+    </script>-->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    
+
     <table style="width: 80%;">
         <tr>
             <td style="text-align: center"><a id="status" onserverclick="StatusPet_onClick" runat="server">
@@ -21,8 +21,10 @@
         </tr>
         <tr>
             <td colspan="3" style="text-align: center">
-                <img id="vPet" style="width: 200px; height: 200px" src="imagenes/Pets/guilattack.gif" runat="server" /><asp:Image ID="Image1" runat="server" />
-                &nbsp;<label id="lblvp" runat="server" visible="false"></label></td>
+                <img id="vPet" style="width: 200px; height: 200px" src="imagenes/Pets/guilattack.gif" runat="server" /><
+                <img id="vpEat" style="width: 200px; height: 200px" src="imagenes/Pets/guileat.gif" runat="server" />
+                <asp:Label ID="lblvp" runat="server" visible="false">></asp:Label>
+            </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
